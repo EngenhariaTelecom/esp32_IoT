@@ -1,0 +1,427 @@
+[
+    {
+        "id": "4fcc8e3880c198ca",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cea8d589fe47aee6",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.2.124",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0f099944d8cf24c7",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true
+    },
+    {
+        "id": "d2c7b458bb520d5d",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "49dbdbaca3f41ab5",
+        "type": "ui-page",
+        "name": "Dashboard",
+        "ui": "0f099944d8cf24c7",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "d2c7b458bb520d5d",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c9df8fd7bd9c3d8b",
+        "type": "ui-group",
+        "name": "Temperatura",
+        "page": "49dbdbaca3f41ab5",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "c3de3b706bc07b7c",
+        "type": "ui-group",
+        "name": "Luminosidade",
+        "page": "49dbdbaca3f41ab5",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "cde63cdb4bd0419a",
+        "type": "mqtt in",
+        "z": "4fcc8e3880c198ca",
+        "name": "",
+        "topic": "sensor_luz",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cea8d589fe47aee6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 300,
+        "y": 480,
+        "wires": [
+            [
+                "2595580a2628945c",
+                "fdf340248b671a56"
+            ]
+        ]
+    },
+    {
+        "id": "2595580a2628945c",
+        "type": "debug",
+        "z": "4fcc8e3880c198ca",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1c2499aa04ef1726",
+        "type": "debug",
+        "z": "4fcc8e3880c198ca",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "cc3c362af3dc69dd",
+        "type": "mqtt in",
+        "z": "4fcc8e3880c198ca",
+        "name": "",
+        "topic": "sensor_temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cea8d589fe47aee6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "1c2499aa04ef1726",
+                "57a33cd221c43f05",
+                "953051319c23c679"
+            ]
+        ]
+    },
+    {
+        "id": "57a33cd221c43f05",
+        "type": "ui-text",
+        "z": "4fcc8e3880c198ca",
+        "group": "c9df8fd7bd9c3d8b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperatura atual:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 550,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d0fae3c1e297bede",
+        "type": "mqtt in",
+        "z": "4fcc8e3880c198ca",
+        "name": "",
+        "topic": "sensor_umid",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cea8d589fe47aee6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 280,
+        "wires": [
+            [
+                "2d78b268efde523a",
+                "3203c75bca18aee4",
+                "0e6147a58587f475"
+            ]
+        ]
+    },
+    {
+        "id": "2d78b268efde523a",
+        "type": "debug",
+        "z": "4fcc8e3880c198ca",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "0e6147a58587f475",
+        "type": "ui-gauge",
+        "z": "4fcc8e3880c198ca",
+        "name": "",
+        "group": "c9df8fd7bd9c3d8b",
+        "order": 3,
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "Umidade",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 520,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "3203c75bca18aee4",
+        "type": "ui-text",
+        "z": "4fcc8e3880c198ca",
+        "group": "c9df8fd7bd9c3d8b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Umidade atual:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 540,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "953051319c23c679",
+        "type": "ui-gauge",
+        "z": "4fcc8e3880c198ca",
+        "name": "",
+        "group": "c9df8fd7bd9c3d8b",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "Temperatura",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": "50",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 530,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3283926ca940d172",
+        "type": "ui-text",
+        "z": "4fcc8e3880c198ca",
+        "group": "c3de3b706bc07b7c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "msg",
+        "x": 680,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "fdf340248b671a56",
+        "type": "json",
+        "z": "4fcc8e3880c198ca",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 510,
+        "y": 560,
+        "wires": [
+            [
+                "3283926ca940d172"
+            ]
+        ]
+    }
+]
