@@ -615,15 +615,15 @@ Adafruit_ADS1115 ads;
 
 // Pinos para controle
 #define RELAY_PIN 13  // Pino do relé (lâmpada)
-#define LED_AC_ON 12  // LED indicando AC ligado
-#define LED_AC_OFF 14 // LED indicando AC desligado
+#define LED_AC_1 12  // LED indicando AC1
+#define LED_AC_2 14 // LED indicando AC2
 
 // Configurações de WiFi
-const char* ssid = "A Net";
-const char* password = "12345678";
+const char* ssid = "Fabio";
+const char* password = "F0023339";
 
 // Configurações do MQTT (Mosquitto)
-const char* mqttServer = "15.229.47.227";
+const char* mqttServer = "18.231.157.84";
 const int mqttPort = 1883;
 const char* mqttUser = "";
 const char* mqttPassword = "";
@@ -663,6 +663,8 @@ void connectToMQTT() {
     if (mqttClient.connect("ESP32Client", mqttUser, mqttPassword)) {
       Serial.println("Conectado!");
       mqttClient.subscribe(mqttRelayTopic);
+      mqttClient.subscribe(mqttAc1StatusTopic);
+      mqttClient.subscribe(mqttAc2StatusTopic);
     } else {
       Serial.print("Falha na conexão, rc=");
       Serial.print(mqttClient.state());
@@ -682,6 +684,7 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
   Serial.print(": ");
   Serial.println(message);
 
+   // Controle da lâmpada
   if (String(topic) == mqttRelayTopic) {
     if (message == "ON") {
       digitalWrite(RELAY_PIN, HIGH);
@@ -689,6 +692,28 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
     } else if (message == "OFF") {
       digitalWrite(RELAY_PIN, LOW);
       Serial.println("Lâmpada desligada");
+    }
+  }
+
+  // Controle do status do ar-condicionado 1
+  else if (String(topic) == mqttAc1StatusTopic) {
+    if (message == "ON") {
+      digitalWrite(LED_AC_1, HIGH);
+      Serial.println("Ar-condicionado 1 LIGADO");
+    } else if (message == "OFF") {
+      digitalWrite(LED_AC_1, LOW);
+      Serial.println("Ar-condicionado 1 DESLIGADO");
+    }
+  }
+
+  // Controle do status do ar-condicionado 2 
+  else if (String(topic) == mqttAc2StatusTopic) {
+    if (message == "ON") {
+      digitalWrite(LED_AC_2, HIGH);
+      Serial.println("Ar-condicionado 2 LIGADO");
+    } else if (message == "OFF") {
+      digitalWrite(LED_AC_2, LOW);
+      Serial.println("Ar-condicionado 2 DESLIGADO");
     }
   }
 }
@@ -705,10 +730,10 @@ void publishToMQTT() {
   snprintf(message, sizeof(message), "{\"ldrStatus\":\"%s\"}", (ldrValue > 5000) ? "Lâmpada APAGADA" : "Lâmpada ACESA");
   mqttClient.publish(mqttLdrTopic, message);
 
-  snprintf(message, sizeof(message), "{\"arcondicionado1\":\"%s\"}", digitalRead(LED_AC_ON) == HIGH ? "Ligado" : "Desligado");
+  snprintf(message, sizeof(message), "{\"arcondicionado1\":\"%s\"}", digitalRead(LED_AC_1) == HIGH ? "Ligado" : "Desligado");
   mqttClient.publish(mqttAc1StatusTopic, message);
 
-  snprintf(message, sizeof(message), "{\"arcondicionado2\":\"%s\"}", digitalRead(LED_AC_ON) == HIGH ? "Ligado" : "Desligado");
+  snprintf(message, sizeof(message), "{\"arcondicionado2\":\"%s\"}", digitalRead(LED_AC_2) == HIGH ? "Ligado" : "Desligado");
   mqttClient.publish(mqttAc2StatusTopic, message);
 }
 
@@ -722,8 +747,8 @@ void setup() {
   }
 
   pinMode(RELAY_PIN, OUTPUT);
-  pinMode(LED_AC_ON, INPUT);
-  pinMode(LED_AC_OFF, INPUT);
+  pinMode(LED_AC_1, OUTPUT);
+  pinMode(LED_AC_2, OUTPUT);
   
   connectToWiFi();
   mqttClient.setCallback(mqttCallback);
