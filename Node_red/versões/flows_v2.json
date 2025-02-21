@@ -1,0 +1,1583 @@
+[
+    {
+        "id": "add42e1c6c1a3369",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "53f9836ca2883da9",
+        "type": "mqtt in",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "topic": "sensor_luz",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cea8d589fe47aee6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 560,
+        "y": 480,
+        "wires": [
+            [
+                "60f2da934cd6fe86",
+                "f3492c474968f855"
+            ]
+        ]
+    },
+    {
+        "id": "60f2da934cd6fe86",
+        "type": "debug",
+        "z": "add42e1c6c1a3369",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "5e18042d96693e8d",
+        "type": "debug",
+        "z": "add42e1c6c1a3369",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "162d38811f03650d",
+        "type": "mqtt in",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "topic": "sensor_temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cea8d589fe47aee6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "5e18042d96693e8d",
+                "5f074653252b1596",
+                "5692c64e887d136b"
+            ]
+        ]
+    },
+    {
+        "id": "5f074653252b1596",
+        "type": "ui-text",
+        "z": "add42e1c6c1a3369",
+        "group": "c9df8fd7bd9c3d8b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperatura atual:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 810,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a153dd81ccda8f1b",
+        "type": "mqtt in",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "topic": "sensor_umid",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cea8d589fe47aee6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "6af7b8787e89e0da",
+                "e34d226e40594291",
+                "aa663532eba6f244"
+            ]
+        ]
+    },
+    {
+        "id": "6af7b8787e89e0da",
+        "type": "debug",
+        "z": "add42e1c6c1a3369",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "aa663532eba6f244",
+        "type": "ui-gauge",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "group": "c9df8fd7bd9c3d8b",
+        "order": 3,
+        "width": 6,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "Umidade",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 780,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e34d226e40594291",
+        "type": "ui-text",
+        "z": "add42e1c6c1a3369",
+        "group": "c9df8fd7bd9c3d8b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Umidade atual:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 800,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "5692c64e887d136b",
+        "type": "ui-gauge",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "group": "c9df8fd7bd9c3d8b",
+        "order": 1,
+        "width": 6,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "Temperatura",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353"
+            }
+        ],
+        "min": 0,
+        "max": "50",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 790,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9e6360342efe0d02",
+        "type": "ui-text",
+        "z": "add42e1c6c1a3369",
+        "group": "9afea0b4e4d5ac5e",
+        "order": 1,
+        "width": null,
+        "height": null,
+        "name": "",
+        "label": "Status lâmpada:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "msg",
+        "x": 960,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f3492c474968f855",
+        "type": "json",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 770,
+        "y": 560,
+        "wires": [
+            [
+                "9e6360342efe0d02"
+            ]
+        ]
+    },
+    {
+        "id": "e5ec10ea506359ad",
+        "type": "mqtt out",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "topic": "lampada/comando",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cea8d589fe47aee6",
+        "x": 950,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "61ca6d36748164aa",
+        "type": "ui-button",
+        "z": "add42e1c6c1a3369",
+        "group": "9afea0b4e4d5ac5e",
+        "name": "",
+        "label": "Ligar Lâmpada",
+        "order": 3,
+        "width": 3,
+        "height": "2",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "ON",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 600,
+        "y": 920,
+        "wires": [
+            [
+                "e5ec10ea506359ad",
+                "fc1e51c4932cd7c0"
+            ]
+        ]
+    },
+    {
+        "id": "69007852cf4d26c3",
+        "type": "ui-button",
+        "z": "add42e1c6c1a3369",
+        "group": "9afea0b4e4d5ac5e",
+        "name": "",
+        "label": "Desligar Lâmpada",
+        "order": 4,
+        "width": 3,
+        "height": "2",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "OFF",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 710,
+        "y": 1000,
+        "wires": [
+            [
+                "e5ec10ea506359ad",
+                "e6a0bb5f6773fb6d"
+            ]
+        ]
+    },
+    {
+        "id": "e3dd1b9af0f37c02",
+        "type": "ui-text",
+        "z": "add42e1c6c1a3369",
+        "group": "9afea0b4e4d5ac5e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status Rele: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 1170,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "e6a0bb5f6773fb6d",
+        "type": "change",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "Rele não acionado",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 1000,
+        "wires": [
+            [
+                "e3dd1b9af0f37c02"
+            ]
+        ]
+    },
+    {
+        "id": "fc1e51c4932cd7c0",
+        "type": "change",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "Rele acionado",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 920,
+        "wires": [
+            [
+                "e3dd1b9af0f37c02"
+            ]
+        ]
+    },
+    {
+        "id": "c9443e55b255d52c",
+        "type": "inject",
+        "z": "add42e1c6c1a3369",
+        "name": "verifica rele",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 720,
+        "wires": [
+            [
+                "592df552c5550b67"
+            ]
+        ]
+    },
+    {
+        "id": "b5d3dd6908779861",
+        "type": "mqtt out",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "topic": "arcondicionado_1/status",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cea8d589fe47aee6",
+        "x": 1030,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "c086b58df2641e35",
+        "type": "ui-switch",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "label": "Comando AC1",
+        "group": "85a6f7a864fe4145",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 600,
+        "y": 1140,
+        "wires": [
+            [
+                "c6540f34e790691d",
+                "b5d3dd6908779861"
+            ]
+        ]
+    },
+    {
+        "id": "c6540f34e790691d",
+        "type": "ui-text",
+        "z": "add42e1c6c1a3369",
+        "group": "85a6f7a864fe4145",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status AC1: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 990,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "778efe159df81015",
+        "type": "mqtt out",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "topic": "arcondicionado_2/status",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cea8d589fe47aee6",
+        "x": 1030,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "ee936105613813b3",
+        "type": "ui-switch",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "label": "Comando AC2",
+        "group": "85a6f7a864fe4145",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 600,
+        "y": 1280,
+        "wires": [
+            [
+                "778efe159df81015",
+                "6f6e36e7686c44c1"
+            ]
+        ]
+    },
+    {
+        "id": "6f6e36e7686c44c1",
+        "type": "ui-text",
+        "z": "add42e1c6c1a3369",
+        "group": "85a6f7a864fe4145",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status AC2: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 990,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "592df552c5550b67",
+        "type": "file in",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "filename": "/home/ubuntu/banco_de_dados.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "allProps": false,
+        "x": 260,
+        "y": 800,
+        "wires": [
+            [
+                "905c9a70d7225844"
+            ]
+        ]
+    },
+    {
+        "id": "905c9a70d7225844",
+        "type": "split",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "property": "payload",
+        "x": 490,
+        "y": 800,
+        "wires": [
+            [
+                "1d0b95bc0c9bfadf"
+            ]
+        ]
+    },
+    {
+        "id": "1d0b95bc0c9bfadf",
+        "type": "function",
+        "z": "add42e1c6c1a3369",
+        "name": "function 2",
+        "func": "var agora = new Date();\nvar horaAtual = agora.getHours().toString().padStart(2, '0') + \":\" +\n    agora.getMinutes().toString().padStart(2, '0');\n\nvar linhas = msg.payload.trim().split(\"\\n\");  // Separa linhas\nvar mensagens = [];\n\nlinhas.forEach(linha => {\n    var partes = linha.split(\";\"); // Divide os campos\n\n    if (partes.length < 3) {\n        return;  // Ignora linhas inválidas\n    }\n\n    var hora = partes[0];      // Hora do comando\n    var topico = partes[1];    // Nome do tópico MQTT\n    var comando = partes[2];   // Comando (ON/OFF)\n\n    if (hora === horaAtual) {\n        mensagens.push({ topic: topico, payload: comando });\n    }\n});\n\nreturn [mensagens];  // Envia todas as mensagens correspondentes\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 800,
+        "wires": [
+            [
+                "e5ec10ea506359ad",
+                "ce188dd4f8f31313"
+            ]
+        ]
+    },
+    {
+        "id": "ce188dd4f8f31313",
+        "type": "debug",
+        "z": "add42e1c6c1a3369",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "7301e44d379d025b",
+        "type": "mongodb4",
+        "z": "add42e1c6c1a3369",
+        "clientNode": "56178469f15a1549",
+        "mode": "collection",
+        "collection": "nodered",
+        "operation": "",
+        "output": "toArray",
+        "maxTimeMS": "0",
+        "handleDocId": false,
+        "name": "",
+        "x": 550,
+        "y": 1460,
+        "wires": [
+            [
+                "25a0f9303f86753a"
+            ]
+        ]
+    },
+    {
+        "id": "3e45f2e3d72f108c",
+        "type": "inject",
+        "z": "add42e1c6c1a3369",
+        "name": "createrBD",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "operation",
+                "v": "insertOne",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"hora\":\"08:00\",\"dia\":\"segunda\",\"topico_mqtt\":\"lampada/comando\",\"comando_mqtt\":\"ON\"}",
+        "payloadType": "json",
+        "x": 240,
+        "y": 1460,
+        "wires": [
+            [
+                "7301e44d379d025b"
+            ]
+        ]
+    },
+    {
+        "id": "25a0f9303f86753a",
+        "type": "debug",
+        "z": "add42e1c6c1a3369",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "4058973c0e26de1c",
+        "type": "inject",
+        "z": "add42e1c6c1a3369",
+        "name": "consultandoBD",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "operation",
+                "v": "findOne",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 1580,
+        "wires": [
+            [
+                "5b02d92a3ffa6d1e"
+            ]
+        ]
+    },
+    {
+        "id": "5b02d92a3ffa6d1e",
+        "type": "function",
+        "z": "add42e1c6c1a3369",
+        "name": "function 1",
+        "func": "// Obtém a biblioteca mongodb do contexto global\nconst { ObjectId } = global.get(\"mongodb\");\n\n// Define o filtro da consulta\nmsg.payload = { _id: new ObjectId(\"67b1cff20e0ffb3e80c8d8d7\") };\n\n// Define a operação (findOne busca um único documento)\nmsg.operation = \"findOne\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "/home/ubuntu/.node-red/node_modules/mongodb"
+            }
+        ],
+        "x": 460,
+        "y": 1580,
+        "wires": [
+            [
+                "43d9f5dfa09bf399"
+            ]
+        ]
+    },
+    {
+        "id": "43d9f5dfa09bf399",
+        "type": "mongodb4",
+        "z": "add42e1c6c1a3369",
+        "clientNode": "56178469f15a1549",
+        "mode": "collection",
+        "collection": "nodered",
+        "operation": "",
+        "output": "toArray",
+        "maxTimeMS": "0",
+        "handleDocId": false,
+        "name": "",
+        "x": 650,
+        "y": 1580,
+        "wires": [
+            [
+                "f4b0d4816afa4484"
+            ]
+        ]
+    },
+    {
+        "id": "f4b0d4816afa4484",
+        "type": "debug",
+        "z": "add42e1c6c1a3369",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "e4a2429a4bb8bead",
+        "type": "ui-text-input",
+        "z": "add42e1c6c1a3369",
+        "group": "0513e86b6359f431",
+        "name": "",
+        "label": "hora_ligar",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "time",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": true,
+        "sendOnClear": true,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 300,
+        "y": 1720,
+        "wires": [
+            [
+                "98857b13fb885c17"
+            ]
+        ]
+    },
+    {
+        "id": "7187aeb1ab64dfa0",
+        "type": "ui-text-input",
+        "z": "add42e1c6c1a3369",
+        "group": "0513e86b6359f431",
+        "name": "",
+        "label": "hora_desligar",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "time",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": true,
+        "sendOnClear": true,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 300,
+        "y": 1800,
+        "wires": [
+            [
+                "c9a31be637082fb7"
+            ]
+        ]
+    },
+    {
+        "id": "978c13510eba5661",
+        "type": "ui-button",
+        "z": "add42e1c6c1a3369",
+        "group": "0513e86b6359f431",
+        "name": "",
+        "label": "update",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": false,
+        "enablePointerdown": true,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 150,
+        "y": 1760,
+        "wires": [
+            [
+                "e4a2429a4bb8bead",
+                "7187aeb1ab64dfa0"
+            ]
+        ]
+    },
+    {
+        "id": "2a56a66bd41a05eb",
+        "type": "inject",
+        "z": "add42e1c6c1a3369",
+        "name": "consultandoBD_OFF",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "operation",
+                "v": "find",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 2020,
+        "wires": [
+            [
+                "0adb4f8629662554"
+            ]
+        ]
+    },
+    {
+        "id": "0adb4f8629662554",
+        "type": "function",
+        "z": "add42e1c6c1a3369",
+        "name": "function 3",
+        "func": "msg.payload = [{ comando_mqtt: \"OFF\" }]\nmsg.operation = \"find\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "/home/ubuntu/.node-red/node_modules/mongodb"
+            }
+        ],
+        "x": 360,
+        "y": 2020,
+        "wires": [
+            [
+                "6a0c9b2ca7974573"
+            ]
+        ]
+    },
+    {
+        "id": "6a0c9b2ca7974573",
+        "type": "mongodb4",
+        "z": "add42e1c6c1a3369",
+        "clientNode": "56178469f15a1549",
+        "mode": "collection",
+        "collection": "nodered",
+        "operation": "",
+        "output": "toArray",
+        "maxTimeMS": "0",
+        "handleDocId": false,
+        "name": "",
+        "x": 550,
+        "y": 2020,
+        "wires": [
+            [
+                "eeb18cca1c272afb"
+            ]
+        ]
+    },
+    {
+        "id": "eeb18cca1c272afb",
+        "type": "function",
+        "z": "add42e1c6c1a3369",
+        "name": "function 6",
+        "func": "// Obter a hora atual ajustada para o fuso horário de Brasília (GMT-3)\nvar now = new Date();\nvar horaBrasilia = now.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }).split(' ')[1].substring(0, 5); // Pega apenas a hora no formato HH:mm\n\n// Comparar a hora atual com a hora salva em msg.payload[0].hora\nif (horaBrasilia === msg.payload[0].hora) {\n    msg.payload = msg.payload[0].comando_mqtt; // Enviar comando_mqtt se as horas forem iguais\n    return msg;\n} else {\n    return null; // Não faz nada se as horas não forem iguais\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "/home/ubuntu/.node-red/node_modules/mongodb"
+            }
+        ],
+        "x": 780,
+        "y": 2020,
+        "wires": [
+            [
+                "e5ec76ad2803507e"
+            ]
+        ]
+    },
+    {
+        "id": "c9a31be637082fb7",
+        "type": "function",
+        "z": "add42e1c6c1a3369",
+        "name": "function 5",
+        "func": "msg.payload = { \"hora\": msg.payload }; // Transforma a string da hora em um objeto\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "/home/ubuntu/.node-red/node_modules/mongodb"
+            }
+        ],
+        "x": 540,
+        "y": 1800,
+        "wires": [
+            [
+                "513c565debece848"
+            ]
+        ]
+    },
+    {
+        "id": "513c565debece848",
+        "type": "function",
+        "z": "add42e1c6c1a3369",
+        "name": "function 7",
+        "func": "// Obtém a nova hora diretamente de msg.payload.hora\nlet novaHora = msg.payload.hora;  // Acessa o valor real da hora\n\n// Define a consulta para filtrar documentos onde comando_mqtt é \"OFF\"\nlet filtro = { comando_mqtt: \"OFF\" };\n\nmsg.payload = [\n    filtro,  // Filtro para selecionar os documentos\n    { $set: { hora: novaHora } }  // Atualização do campo \"hora\"\n];\n\nmsg.operation = \"updateMany\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "/home/ubuntu/.node-red/node_modules/mongodb"
+            }
+        ],
+        "x": 840,
+        "y": 1800,
+        "wires": [
+            [
+                "aeb3be7f355152a3",
+                "21a81e5abaa433d8"
+            ]
+        ]
+    },
+    {
+        "id": "aeb3be7f355152a3",
+        "type": "mongodb4",
+        "z": "add42e1c6c1a3369",
+        "clientNode": "56178469f15a1549",
+        "mode": "collection",
+        "collection": "nodered",
+        "operation": "updateMany",
+        "output": "toArray",
+        "maxTimeMS": "0",
+        "handleDocId": false,
+        "name": "",
+        "x": 1190,
+        "y": 1800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21a81e5abaa433d8",
+        "type": "debug",
+        "z": "add42e1c6c1a3369",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "98857b13fb885c17",
+        "type": "function",
+        "z": "add42e1c6c1a3369",
+        "name": "function 4",
+        "func": "msg.payload = { \"hora\": msg.payload }; // Transforma a string da hora em um objeto\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "/home/ubuntu/.node-red/node_modules/mongodb"
+            }
+        ],
+        "x": 520,
+        "y": 1720,
+        "wires": [
+            [
+                "dcaef891b42f6dbf"
+            ]
+        ]
+    },
+    {
+        "id": "dcaef891b42f6dbf",
+        "type": "function",
+        "z": "add42e1c6c1a3369",
+        "name": "function 5",
+        "func": "// Obtém a nova hora diretamente de msg.payload.hora\nlet novaHora = msg.payload.hora;  // Acessa o valor real da hora\n\n// Define a consulta para filtrar documentos onde comando_mqtt é \"OFF\"\nlet filtro = { comando_mqtt: \"ON\" };\n\nmsg.payload = [\n    filtro,  // Filtro para selecionar os documentos\n    { $set: { hora: novaHora } }  // Atualização do campo \"hora\"\n];\n\nmsg.operation = \"updateMany\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "/home/ubuntu/.node-red/node_modules/mongodb"
+            }
+        ],
+        "x": 820,
+        "y": 1720,
+        "wires": [
+            [
+                "2a37dc32efa8928e",
+                "cf29ff9a3bb89f9b"
+            ]
+        ]
+    },
+    {
+        "id": "2a37dc32efa8928e",
+        "type": "mongodb4",
+        "z": "add42e1c6c1a3369",
+        "clientNode": "56178469f15a1549",
+        "mode": "collection",
+        "collection": "nodered",
+        "operation": "updateMany",
+        "output": "toArray",
+        "maxTimeMS": "0",
+        "handleDocId": false,
+        "name": "",
+        "x": 1170,
+        "y": 1720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf29ff9a3bb89f9b",
+        "type": "debug",
+        "z": "add42e1c6c1a3369",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "e5ec76ad2803507e",
+        "type": "mqtt out",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "topic": "lampada/comando",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cea8d589fe47aee6",
+        "x": 1030,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "f21d1e093a11f3ed",
+        "type": "inject",
+        "z": "add42e1c6c1a3369",
+        "name": "consultandoBD_ON",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "operation",
+                "v": "find",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 2120,
+        "wires": [
+            [
+                "56abe51cc80e36ff"
+            ]
+        ]
+    },
+    {
+        "id": "56abe51cc80e36ff",
+        "type": "function",
+        "z": "add42e1c6c1a3369",
+        "name": "function 8",
+        "func": "msg.payload = [{ comando_mqtt: \"ON\" }]\nmsg.operation = \"find\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "/home/ubuntu/.node-red/node_modules/mongodb"
+            }
+        ],
+        "x": 360,
+        "y": 2120,
+        "wires": [
+            [
+                "90f8af87a10afe85"
+            ]
+        ]
+    },
+    {
+        "id": "90f8af87a10afe85",
+        "type": "mongodb4",
+        "z": "add42e1c6c1a3369",
+        "clientNode": "56178469f15a1549",
+        "mode": "collection",
+        "collection": "nodered",
+        "operation": "",
+        "output": "toArray",
+        "maxTimeMS": "0",
+        "handleDocId": false,
+        "name": "",
+        "x": 550,
+        "y": 2120,
+        "wires": [
+            [
+                "cd7a3251c86afcdd"
+            ]
+        ]
+    },
+    {
+        "id": "cd7a3251c86afcdd",
+        "type": "function",
+        "z": "add42e1c6c1a3369",
+        "name": "function 9",
+        "func": "// Obter a hora atual ajustada para o fuso horário de Brasília (GMT-3)\nvar now = new Date();\nvar horaBrasilia = now.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }).split(' ')[1].substring(0, 5); // Pega apenas a hora no formato HH:mm\n\n// Comparar a hora atual com a hora salva em msg.payload[0].hora\nif (horaBrasilia === msg.payload[0].hora) {\n    msg.payload = msg.payload[0].comando_mqtt; // Enviar comando_mqtt se as horas forem iguais\n    return msg;\n} else {\n    return null; // Não faz nada se as horas não forem iguais\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "mongodb",
+                "module": "/home/ubuntu/.node-red/node_modules/mongodb"
+            }
+        ],
+        "x": 780,
+        "y": 2120,
+        "wires": [
+            [
+                "291914c91037688b"
+            ]
+        ]
+    },
+    {
+        "id": "291914c91037688b",
+        "type": "mqtt out",
+        "z": "add42e1c6c1a3369",
+        "name": "",
+        "topic": "lampada/comando",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cea8d589fe47aee6",
+        "x": 1050,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "cea8d589fe47aee6",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c9df8fd7bd9c3d8b",
+        "type": "ui-group",
+        "name": "Temperatura",
+        "page": "49dbdbaca3f41ab5",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "9afea0b4e4d5ac5e",
+        "type": "ui-group",
+        "name": "Lâmpada",
+        "page": "49dbdbaca3f41ab5",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "85a6f7a864fe4145",
+        "type": "ui-group",
+        "name": "Ar Condicionado",
+        "page": "49dbdbaca3f41ab5",
+        "width": 6,
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "56178469f15a1549",
+        "type": "mongodb4-client",
+        "name": "",
+        "protocol": "mongodb",
+        "hostname": "",
+        "port": "",
+        "dbName": "Projeto",
+        "appName": "",
+        "authSource": "",
+        "authMechanism": "DEFAULT",
+        "tls": false,
+        "tlsCAFile": "",
+        "tlsCertificateKeyFile": "",
+        "tlsInsecure": false,
+        "connectTimeoutMS": "30000",
+        "socketTimeoutMS": "0",
+        "minPoolSize": "0",
+        "maxPoolSize": "100",
+        "maxIdleTimeMS": "0",
+        "uri": "mongodb+srv://beatriz:projetoIntegrador2@projeto.uxw5f.mongodb.net/?retryWrites=true&w=majority&appName=Projeto",
+        "advanced": "{}",
+        "uriTabActive": "tab-uri-advanced"
+    },
+    {
+        "id": "0513e86b6359f431",
+        "type": "ui-group",
+        "name": "Acionamentos automáticos",
+        "page": "49dbdbaca3f41ab5",
+        "width": 6,
+        "height": 1,
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "49dbdbaca3f41ab5",
+        "type": "ui-page",
+        "name": "Dashboard",
+        "ui": "0f099944d8cf24c7",
+        "path": "/page2",
+        "icon": "home",
+        "layout": "flex",
+        "theme": "d2c7b458bb520d5d",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "1"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "1"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "1"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "0f099944d8cf24c7",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true
+    },
+    {
+        "id": "d2c7b458bb520d5d",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#676565",
+            "primary": "#0094ce",
+            "bgPage": "#676565",
+            "groupBg": "#676565",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]
